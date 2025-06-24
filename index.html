@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Currículum Vitae</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #3b82f6;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background: #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e7eb;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: #3b82f6;
+            transition: width 1s ease-in-out;
+        }
+        
+        .portfolio-item {
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .dark-mode {
+            background-color: #1f2937;
+            color: #f3f4f6;
+        }
+        
+        .dark-mode .card {
+            background-color: #374151;
+            color: #f3f4f6;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row items-center justify-between mb-12 bg-white rounded-xl shadow-md p-6">
+            <div class="flex items-center mb-6 md:mb-0">
+                <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg">
+                    <img src="/imagenes/foto.jpg" alt="Foto de perfil" class="w-full h-full object-cover">
+                </div>
+                <div class="ml-6">
+                    <h1 class="text-3xl font-bold text-gray-800">German Planes</h1>
+                    <h2 class="text-xl text-blue-600">Diseñador Gráfico & Programador</h2>
+                    <div class="flex mt-2 space-x-2">
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Fotógrafo</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CNC/Láser</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Policía</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center md:text-right">
+                <div class="mb-2">
+                    <a href="tel:+5491112345678" class="text-gray-700 hover:text-blue-600 flex items-center justify-end">
+                        <i class="fas fa-phone mr-2"></i> +54 (0) 264 477-6785
+                    </a>
+                </div>
+                <div class="mb-2">
+                    <a href="portafoliosgerman@gmail.com" class="text-gray-700 hover:text-blue-600 flex items-center justify-end">
+                        <i class="fas fa-envelope mr-2"></i> portafoliosgerman@gmail.com
+                    </a>
+                </div>
+                <div class="mb-2">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 flex items-center justify-end">
+                        <i class="fas fa-map-marker-alt mr-2"></i> San Juan, Argentina
+                    </a>
+                </div>
+                <div class="flex justify-end space-x-3 mt-4">
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/germanplanes" target="_blank" class="text-blue-600 hover:text-blue-800 text-xl" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <!-- GitHub (debes reemplazar el link por el tuyo si lo tienes)
+                    <a href="https://github.com/" target="_blank" class="text-gray-800 hover:text-blue-600 text-xl" aria-label="GitHub">
+                        <i class="fab fa-github"></i> -->
+                    </a>
+                    <!-- Instagram (reemplaza si tienes un usuario real) 
+                    <a href="https://www.instagram.com/" target="_blank" class="text-pink-600 hover:text-pink-800 text-xl" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i> -->
+                    </a>
+                    <!-- Twitter (reemplaza si usás X/Twitter)
+                    <a href="https://twitter.com/" target="_blank" class="text-blue-400 hover:text-blue-600 text-xl" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i> -->
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/share/1LEq6Wt3Fz/" target="_blank" class="text-blue-700 hover:text-blue-900 text-xl" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/542644776785" target="_blank" class="text-green-500 hover:text-green-700 text-xl" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+
+            </div>
+            <button id="darkModeToggle" class="mt-4 px-3 py-1 bg-gray-200 rounded-full text-sm flex items-center">
+                    <i class="fas fa-moon mr-1"></i> Modo Oscuro
+                </button>
+    </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Left Column -->
+        <div class="lg:col-span-2 space-y-8">
+            <!-- About Me -->
+            <section class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-blue-100 pb-2 flex items-center">
+                    <i class="fas fa-user mr-2 text-blue-600"></i> Sobre Mí
+                </h2>
+                <p class="text-gray-700">
+                    Profesional multifacético con experiencia en diseño gráfico, programación, fotografía y carpintería CNC/láser. Actualmente trabajando en la policía con experiencia en seguridad, capturas fotograficas, relaciones públicas y diseño institucional. Busco
+                    oportunidades para aplicar mis habilidades técnicas y creativas en proyectos desafiantes.
+                </p>
+            </section>
+
+            <!-- Experience -->
+            <section class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-blue-100 pb-2 flex items-center">
+                    <i class="fas fa-briefcase mr-2 text-blue-600"></i> Experiencia Laboral
+                </h2>
+                <div class="space-y-8">
+                    <!-- Police Job -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">
+                            <i class="fas fa-shield-alt text-white text-xs"></i>
+                        </div>
+                        <div class="pl-4">
+                            <h3 class="text-xl font-semibold text-gray-800">Policía de San Juan</h3>
+                            <p class="text-gray-600">2018 - Presente</p>
+                            <ul class="mt-2 list-disc list-inside text-gray-700 space-y-1">
+                                <li>Diseño gráfico para materiales institucionales</li>
+                                <li>Fotografía oficial para eventos y documentación</li>
+                                <li>Coordinación de relaciones públicas</li>
+                                <li>Creación de contenido para redes sociales</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Carpenter Job -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">
+                            <i class="fas fa-tools text-white text-xs"></i>
+                        </div>
+                        <div class="pl-4">
+                            <h3 class="text-xl font-semibold text-gray-800">Carpintero CNC/Láser</h3>
+                            <p class="text-gray-600">2011 - 2017</p>
+                            <ul class="mt-2 list-disc list-inside text-gray-700 space-y-1">
+                                <li>Diseño y fabricación de piezas con máquinas CNC</li>
+                                <li>Programación de rutas de corte láser</li>
+                                <li>Mantenimiento de equipos</li>
+                                <li>Diseño de productos personalizados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-blue-100 pb-2 flex items-center">
+                    <i class="fas fa-graduation-cap mr-2 text-blue-600"></i> Educación
+                </h2>
+                <div class="space-y-8">
+                    <!-- Programming -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">
+                            <i class="fas fa-laptop-code text-white text-xs"></i>
+                        </div>
+                        <div class="pl-4">
+                            <h3 class="text-xl font-semibold text-gray-800">Técnico Superior en Programación</h3>
+                            <p class="text-gray-600">Teclab (2024) - Avalado por el Ministerio de Educación</p>
+                        </div>
+                    </div>
+
+                    <!-- Photography -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">
+                            <i class="fas fa-camera text-white text-xs"></i>
+                        </div>
+                        <div class="pl-4">
+                            <h3 class="text-xl font-semibold text-gray-800">Fotógrafo Profesional</h3>
+                            <p class="text-gray-600">Por finalizar en 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- English -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">
+                            <i class="fas fa-language text-white text-xs"></i>
+                        </div>
+                        <div class="pl-4">
+                            <h3 class="text-xl font-semibold text-gray-800">Certificado de Inglés A2</h3>
+                            <p class="text-gray-600">Marco Internacional Europeo (2022)</p>
+                        </div>
+                    </div>
+
+                    <!-- Graphic Design -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">
+                            <i class="fas fa-paint-brush text-white text-xs"></i>
+                        </div>
+                        <div class="pl-4">
+                            <h3 class="text-xl font-semibold text-gray-800">Diseñador Gráfico Experto</h3>
+                            <p class="text-gray-600">Aprender21 (2021)</p>
+                        </div>
+                    </div>
+
+                    <!-- High School -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">
+                            <i class="fas fa-school text-white text-xs"></i>
+                        </div>
+                        <div class="pl-4">
+                            <h3 class="text-xl font-semibold text-gray-800">Diplomado en gestion contable</h3>
+                            <p class="text-gray-600">Secundaria Juan Pablo II (2011)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column -->
+        <div class="space-y-8">
+            <!-- Skills -->
+            <section class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-blue-100 pb-2 flex items-center">
+                    <i class="fas fa-star mr-2 text-blue-600"></i> Habilidades
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">Diseño Gráfico</span>
+                            <span class="text-gray-600">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">Programación</span>
+                            <span class="text-gray-600">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">Fotografía</span>
+                            <span class="text-gray-600">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">CNC/Láser</span>
+                            <span class="text-gray-600">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">Inglés</span>
+                            <span class="text-gray-600">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Software -->
+            <section class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-blue-100 pb-2 flex items-center">
+                    <i class="fas fa-laptop mr-2 text-blue-600"></i> Software
+                </h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex items-center">
+                        <i class="fab fa-adobe text-red-500 text-2xl mr-2"></i>
+                        <span class="text-gray-700">Adobe Suite</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fab fa-figma text-purple-500 text-2xl mr-2"></i>
+                        <span class="text-gray-700">Figma</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fab fa-html5 text-orange-500 text-2xl mr-2"></i>
+                        <span class="text-gray-700">HTML/CSS</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fab fa-js-square text-yellow-500 text-2xl mr-2"></i>
+                        <span class="text-gray-700">JavaScript</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-database text-blue-400 text-2xl mr-2"></i>
+                        <span class="text-gray-700">SQL</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fab fa-python text-blue-600 text-2xl mr-2"></i>
+                        <span class="text-gray-700">Python</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-cube text-green-500 text-2xl mr-2"></i>
+                        <span class="text-gray-700">AutoCAD</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-cut text-gray-600 text-2xl mr-2"></i>
+                        <span class="text-gray-700">CorelDRAW</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio 
+                <section class="bg-white rounded-xl shadow-md p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-blue-100 pb-2 flex items-center">
+                        <i class="fas fa-images mr-2 text-blue-600"></i> Portafolio
+                    </h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="#" class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Diseño gráfico" class="rounded-lg h-32 w-full object-cover">
+                            <p class="text-center mt-1 text-sm text-gray-700">Diseño Gráfico</p>
+                        </a>
+                        <a href="#" class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c811329a3a0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="CNC/Láser" class="rounded-lg h-32 w-full object-cover">
+                            <p class="text-center mt-1 text-sm text-gray-700">CNC/Láser</p>
+                        </a>
+                        <a href="#" class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Fotografía" class="rounded-lg h-32 w-full object-cover">
+                            <p class="text-center mt-1 text-sm text-gray-700">Fotografía</p>
+                        </a>
+                        <a href="#" class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Programación" class="rounded-lg h-32 w-full object-cover">
+                            <p class="text-center mt-1 text-sm text-gray-700">Programación</p>
+                        </a>
+                    </div>
+                </section>
+Portfolio-->
+            <!-- Contact Form -->
+            <section class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-blue-100 pb-2 flex items-center">
+                    <i class="fas fa-envelope mr-2 text-blue-600"></i> Contáctame
+                </h2>
+                <form action="https://formsubmit.co/portafoliosgerman@gmail.com" method="POST" class="space-y-4">
+                    <!-- Anti-bot honeypot (invisible) -->
+                    <input type="hidden" name="_honey" style="display:none">
+                    <!-- Disable CAPTCHA -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- Redirect after submit -->
+                    <input type="hidden" name="_next" value="https://curriculum-vitae.html">
+
+                    <div>
+                        <label for="name" class="block text-gray-700 mb-1">Nombre</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 mb-1">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+            Enviar Mensaje
+        </button>
+                </form>
+            </section>
+
+        </div>
+        <!-- Footer --><br><br>
+        <footer class="mt-12 text-center text-gray-600 py-6 border-t border-gray-200">
+            <p>© 2025 German Osvaldo Planes. Todos los derechos reservados.</p>
+            <p class="mt-2 text-sm">Diseñado con ❤️ para oportunidades profesionales</p>
+            </div>
+            </div>
+        </footer>
+        </div>
+
+        <script>
+            // Dark mode toggle
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+
+                if (body.classList.contains('dark-mode')) {
+                    darkModeToggle.innerHTML = '<i class="fas fa-sun mr-1"></i> Modo Claro';
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    darkModeToggle.innerHTML = '<i class="fas fa-moon mr-1"></i> Modo Oscuro';
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+
+            // Check for saved dark mode preference
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                body.classList.add('dark-mode');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun mr-1"></i> Modo Claro';
+            }
+
+            // Animate skill bars on scroll
+            const skillBars = document.querySelectorAll('.skill-progress');
+
+            const animateSkillBars = () => {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            };
+
+            // Simple intersection observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            // Observe the skills section
+            const skillsSection = document.querySelector('.bg-white.rounded-xl.shadow-md.p-6');
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+        </script>
+</body>
+
+</html>
