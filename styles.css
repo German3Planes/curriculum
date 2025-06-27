@@ -1,0 +1,60 @@
+/* Estilos personalizados extraídos de index.html */
+.timeline-item {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #3b82f6;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #3b82f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: #e5e7eb;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: #3b82f6;
+    transition: width 1s ease-in-out;
+}
+
+.portfolio-item {
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+.dark-mode {
+    background-color: #1f2937;
+    color: #f3f4f6;
+}
+
+.dark-mode .card {
+    background-color: #374151;
+    color: #f3f4f6;
+}
